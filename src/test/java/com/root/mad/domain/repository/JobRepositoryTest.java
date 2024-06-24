@@ -53,9 +53,13 @@ public class JobRepositoryTest {
         Optional<Job> foundJob = jobRepository.findById(savedJob.getId());
         assertThat(foundJob.isPresent()).isTrue();
         assertThat(foundJob.get().getId()).isEqualTo(savedJob.getId());
+        assertThat(foundJob.stream().count()).isEqualTo(1);
 
-        String invalidId = "invalid id";
+        String invalidId = "invalidId";
         Optional<Job> invalidJob = jobRepository.findById(invalidId);
         assertThat(invalidJob).isNotPresent();
+        assertThat(invalidJob.stream().count()).isEqualTo(0);
     }
+
+
 }
