@@ -16,6 +16,11 @@ public class Job {
     private String description;
     private boolean completed;
 
+    public Job(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
     public String getId() {
         return id;
     }
